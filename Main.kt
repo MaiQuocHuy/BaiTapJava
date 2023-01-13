@@ -60,6 +60,7 @@ fun editStudent(listStudent: ArrayList<Student>) {
                 println("Nhap lai thanh phan muon thay doi(name/age/gender) dung nhu trong ngoac:")
                 itemEdit = readln().lowercase().toString().trim()
                 if(!findExacItemEdit(itemEdit).equals("")) {
+                    check = true
                     println("Nhap gia tri muon thay doi trong $itemEdit:")
                     val valueEdit: String = readln().toString().trim()
                     for (student in listStudent) {
@@ -160,10 +161,15 @@ fun findStudentById(listStudent: ArrayList<Student>, idStu: String): Boolean {
 fun searchStudent(listStudent: ArrayList<Student>) {
    println("Nhap ten sinh vien ma ban muon tim kiem: ")
    val nameSearch = readLine().toString().trim().uppercase()
+    var check = false
     for (student in listStudent) {
         if(student.name.uppercase().toString().contains(nameSearch)) {
+            check = true
             println(student.toString())
         }
+    }
+    if(check == false) {
+        println("Khong Tim thay ten")
     }
 }
 
@@ -178,9 +184,6 @@ fun listStudent(listStudent: ArrayList<Student>) {
 fun main(args: Array<String>) {
     var exist: Boolean = true
     var listStu = ArrayList<Student>()
-    listStu.add(Student("21GIT023", "MAIQUOCHUY", 23, "Name" ))
-    listStu.add(Student("21GIT024", "MAIQUOCHUY", 23, "Name" ))
-    listStu.add(Student("21GIT025", "MAI Yasuo", 23, "Name" ))
     do {
         menu()
         println("Nhap Su Lua Chon: ")
