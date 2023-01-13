@@ -176,8 +176,12 @@ fun searchStudent(listStudent: ArrayList<Student>) {
 
 
 fun listStudent(listStudent: ArrayList<Student>) {
-    for (student in listStudent) {
-        println("${student.toString()}")
+    if(listStudent.size != 0) {
+        for (student in listStudent) {
+            println("${student.toString()}")
+        }
+    } else {
+        println("Chua Co Du Lieu")
     }
 }
 
